@@ -59,7 +59,12 @@ function createTableCorrelation(array) {
     let squirrel = infoRow.squirrel;
 
     for (let j = 0; j < infoEvents.length; j++) {
-      correlation[infoEvents[j]] = 1;
+      if (!(infoEvents[j] in correlation)) {
+        correlation[infoEvents[j]] = [
+          [0, 0],
+          [0, 0],
+        ];
+      }
     }
   }
   console.log(correlation);
